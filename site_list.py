@@ -12,7 +12,8 @@ with open("sherlock/resources/data.json", "r", encoding="utf-8") as data_file:
 
 with open("sites.md", "w") as site_file:
     data_length = len(data)
-    site_file.write(f'## List Of Supported Sites ({data_length} Sites In Total!)\n')
+    site_file.write(
+        f"## List Of Supported Sites ({data_length} Sites In Total!)\n")
 
     for social_network in data:
         url_main = data.get(social_network).get("urlMain")
@@ -20,9 +21,8 @@ with open("sites.md", "w") as site_file:
 
     index = 1
     for social_network, url_main in pool:
-        site_file.write(f'{index}. [{social_network}]({url_main})\n')
+        site_file.write(f"{index}. [{social_network}]({url_main})\n")
         index = index + 1
-
 
 sorted_json_data = json.dumps(data, indent=2, sort_keys=True)
 
